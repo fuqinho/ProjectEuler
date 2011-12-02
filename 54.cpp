@@ -92,10 +92,10 @@ vector<int> calsScore(const vector<string>& cards) {
     // add score for (royal) straight flash
     if (isStraight && flash) score[INDEX_STRAIGHT_FLASH] = 1;
 
-    for (int i = 0; i < cards.size(); i++) cout << cards[i] << " ";
-    cout << " => SCORE: ";
-    for (int i = 0; i < score.size(); i++) cout << score[i] << " ";
-    cout << endl;
+    for (int i = 0; i < cards.size(); i++) cerr << cards[i] << " ";
+    cerr << " => SCORE: ";
+    for (int i = score.size()-1; i >= 0; i--) cerr << score[i] << " ";
+    cerr << endl;
 
     return score;
 }
@@ -128,7 +128,7 @@ int main() {
         }
         bool p1win = isP1Win(s1, s2);
         if (p1win) answer++;
-        cout << t << ": " << (p1win ? "Player 1" : "Player 2") << endl << endl;;
+        cerr << "#" << t << ": " << (p1win ? "Player 1" : "Player 2") << " win!" << endl << endl;;
     }
-    cout << answer << endl;
+    cout << "A: " << answer << endl;
 }
